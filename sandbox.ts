@@ -1,15 +1,15 @@
-// cara nulisnya sama dengan javascript 
-// cara compile nya tsc <nama file .ts> <nama file .js>
-// kalo misalnya nama filenya sama cukup menuliskan yang .ts nya aja.
-// kalo ga ada file .js dia akan membuat extension .js nya
+// assigning allowable data types.
+// typescript hanya membolehkan re-assigning variable dengan jenis data type yang sejenis.
 
-// biar ga harus execute manual setiap ada perubahan lakukan watch monitoring file .ts nya :
-// co : sandbox.ts -w
-var character = "mikha";
-console.log('character ==', character);
-var inputs = document.querySelectorAll('input');
-console.log('inputs ==', inputs);
+let character = "luigi";
+let age = 40;
+let isBlackBelt = true;
 
-inputs.forEach(input => {
-   console.log(input);
-});
+isBlackBelt = false;
+
+// ngasih tau kalo diameter tuh jenis data yang diperbolehkannya hanya number.
+const circ = (diameter: number) => {
+   return diameter * Math.PI;
+}
+
+console.log(circ(7.5));
