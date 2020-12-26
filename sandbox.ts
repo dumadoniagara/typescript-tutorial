@@ -1,40 +1,45 @@
-// tipe data array dan object manjadi lebih strict pada ts
-// co : array yang memuat semua tipe data string ga akan bisa di assign tipe data lainnya
-// gitu juga object --> harus memuat pasang key-value pair yang sama DAN tipe data dari value masing-masing
-// key akan bersifat sama. 
+// explicit types 
+let character: string;
+let age: number;
+let isLoggedIn: boolean;
 
-// array
-let arr = ['duma', 'doniagara', 'sambora'];
-arr.push('nama'); //valid
-// arr.push(3); -> ga valid (di error-in)
+age = 30; // valid
+// age = 'luigi' --> not valid 
 
-// kalo nimpa variable jadi tipe data lain juga gabisa.
+let ninjas: string[] = []; //--> declare empty array, just allow string type
+
+ninjas.push('shaun');
+
+let mixed: (string | number)[] = []; // declare empty array, allow string or number type
+mixed.push('hello');
+mixed.push(20);
+// mixed.push(true); --> invalid
+
+console.log(mixed); // ['hello',20]
+
+let uid: string | number;
+uid = '123';
+uid = 123;
+
+console.log(uid); // 123
+
+// objects
+let ninjaOne: object;
+ninjaOne = { name: 'yoshi', age: 30 };
+// ninjaOne = 'string' --> not allowed
+ninjaOne = ['string', 23] // --> allowed
 
 
-let mixed = [4, 3, 'duma', 'doniagara'];
-mixed.push(54); //valid
-// mixed.push(true); --> ga valid
+let ninjaTwo: {
+   name: string,
+   age: number,
+   beltColor: string,
+}
 
-
-// object
-let ninja = {
+ninjaTwo = {
    name: 'mario',
-   belt: 'black',
-   age: 30,
-};
+   age: 23,
+   beltColor: 'black',
+}
 
-ninja.age = 40; //--> valid
-// ninja.age = '30'; // --> not valid
-
-// ninja.skills = ['fighting', 'sneaking']; //can't add additional property
-
-// kalo mau nimpa object yang udah ada harus sama strukturnya.
- 
-
-// gak valid karena ga akan nambah key baru yang sebelumnya ga ada.
-// ninja = {
-//    name: 'yoshi',
-//    belt: 'orange',
-//    age: 40
-//    skills: ['fighting']
-// }
+console.log('ninjaOne object ==', ninjaOne);
